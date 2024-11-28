@@ -1,0 +1,82 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ Compile active File",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "Compiler: /usr/bin/g++"
+		},
+
+		//Task that includes openGl parameters for a single File
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ Compile active File with OpenGL Parameters",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}",
+				"-lglfw3",
+				"-lGL",
+				"-lX11",
+				"-lpthread",
+				"-lXrandr",
+				"-lXi",
+				"-ldl"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "Compiler: /usr/bin/g++; Only for a single File"
+		},
+		//Task that includes openGl parameters for a project Folder
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ Compile Project Directory with OpenGL Parameters",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/*.cpp",
+				"-lglfw3",
+				"-lGL",
+				"-lX11",
+				"-lpthread",
+				"-lXrandr",
+				"-lXi",
+				"-ldl"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "Compiler: /usr/bin/g++; Only for Project Folders with cpp files"
+		}
+	]
+}

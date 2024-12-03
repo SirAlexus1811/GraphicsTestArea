@@ -1,9 +1,9 @@
 {
     "version": "2.0.0",
     "tasks": [{
-            "label": "Build All",
+            "label": "Build All C/C++",
             "type": "shell",
-            "command": "g++",
+            "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always", //CLI Colors
                 "-g", //For Debugger
@@ -29,9 +29,9 @@
             }
         },
         {
-            "label": "Build All",
+            "label": "Build All C/C++ with OpenGL Params",
             "type": "shell",
-            "command": "g++",
+            "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always", //CLI Colors
                 "-g", //For Debugger

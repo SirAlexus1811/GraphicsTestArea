@@ -1,12 +1,15 @@
 {
     "version": "2.0.0",
-    "tasks": [
-        {
+    "tasks": [{
             "label": "Build All",
             "type": "shell",
             "command": "g++",
             "args": [
-                ""
+                "-fdiagnostics-color=always", //CLI Colors
+                "-g", //For Debugger
+                "$(find . -name '*.cpp' -o -name '*.c')", //All cpp and c files recursive
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}" //CompiledFileName
             ],
             "group": {
                 "kind": "build",
@@ -20,7 +23,42 @@
                 "shell": {
                     "executable": "/bin/bash",
                     "args": [
-                        "-c"
+                        "-c" //Run command, in /bin/bash, thats why "-c"
+                    ]
+                }
+            }
+        },
+        {
+            "label": "Build All",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-fdiagnostics-color=always", //CLI Colors
+                "-g", //For Debugger
+                "$(find . -name '*.cpp' -o -name '*.c')", //All cpp and c files recursive
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}", //CompiledFileName
+                "-lglfw3",//Opengl Params
+                "-lGL",
+                "-lX11",
+                "-lpthread",
+                "-lXrandr",
+                "-lXi",
+                "-ldl"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Builds all .cpp and .c files recursively with OpenGL Params",
+            "options": {
+                "shell": {
+                    "executable": "/bin/bash",
+                    "args": [
+                        "-c" //Run command, in /bin/bash, thats why "-c"
                     ]
                 }
             }
